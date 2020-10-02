@@ -1,0 +1,6 @@
+﻿  main.cpp
+E:\Github\GraphicsLab2\GraphicsLab2\main.cpp(66,19): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\main.cpp(65,54): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\main.cpp(65,19): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\main.cpp(71,38): warning C4305: +=: усечение из "double" в "float"
+  Lesson1.vcxproj -> E:\Github\GraphicsLab2\GraphicsLab2\Debug\Lesson1.exe
