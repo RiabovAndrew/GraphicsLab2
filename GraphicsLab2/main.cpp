@@ -2,8 +2,9 @@
 #include <windows.h>
 #include <cmath>
 #include <numbers>
-//#include "GLRenderSystem.h"
-//#include "GLWindow.h"
+
+#include "GLRenderSystem.h"
+#include "GLWindow.h"
 
 #define GLUT_DISABLE_ATEXIT_HACK
 #include "libs\GL_AL\glew.h"
@@ -41,7 +42,7 @@ int main(int argc, char** argv) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	GLFWwindow* window = glfwCreateWindow(640, 480, "Lesson 01 - RAINBOW - Рябов Андрей ПА-18-2", nullptr, nullptr);
+	auto window = glfwCreateWindow(640, 480, "Lesson 01 - RAINBOW - Рябов Андрей ПА-18-2", nullptr, nullptr);
 
 	if (!window) {
 		fprintf(

@@ -1,6 +1,10 @@
 #ifndef GLRENDERSYSTEM_H
 #define GLRENDERSYSTEM_H
-#include "libs/GL_AL/glfw3.h"
+
+#include "libs\GL_AL\glew.h"
+#include "libs\GL_AL\glfw3.h"
+
+#include <cstdio>
 
 namespace rory {
 	namespace graph_core {
