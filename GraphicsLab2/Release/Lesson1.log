@@ -1,0 +1,20 @@
+﻿  main.cpp
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(49,21): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(48,61): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(48,21): warning C4244: аргумент: преобразование "double" в "GLclampf", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(53,1): warning C4305: +=: усечение из "double" в "float"
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(67,124): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(67,84): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(67,44): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(71,124): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(71,90): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(71,50): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(75,124): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(75,84): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\Github\GraphicsLab2\GraphicsLab2\GLRenderSystem.h(75,50): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+  Создание кода
+  1 of 101 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Lesson1.vcxproj -> E:\Github\GraphicsLab2\GraphicsLab2\Release\Lesson1.exe

@@ -18,7 +18,16 @@ namespace rory {
 		};
 
 		class GLRender final: public GLRenderSystem {
-			void init() override { }
+			void init() override {
+				if (!glfwInit()) {
+					fprintf(stderr, "Ошибка при инициализации GLFW\n");
+					return;
+				}
+				glfwWindowHint(GLFW_SAMPLES, 4);
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+				glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+			}
 			void render(GLFWwindow* window) override { }
 			void renderTriangleArray(GLfloat vertices[], GLfloat colors[]) override { }
 		};
@@ -27,6 +36,7 @@ namespace rory {
 			void init() override {
 				if (!glfwInit()) {
 					fprintf(stderr, "Ошибка при инициализации GLFW\n");
+					return;
 				}
 				glfwWindowHint(GLFW_SAMPLES, 4);
 				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
@@ -43,13 +53,25 @@ namespace rory {
 					colorRGB <= 180 ? colorRGB += 0.1 : colorRGB = 0;
 				}
 				glLoadIdentity();
-				glRotatef(static_cast<float>(glfwGetTime()) * 50.f, 0.f, 0.f, 1.f);
+				glRotatef(static_cast<float>(glfwGetTime()) * 50.f, 0.f, 1.f, 0.f);
 				glBegin(GL_TRIANGLES);
-				glColor3f(1.f, 0.f, 0.f);
+				///*glColor3f(sin(static_cast<float>(glfwGetTime())*5), 0.f, 0.f);*/
+				//glColor3f((sin(glfwGetTime() / 2) + 1) / 2, (sin(glfwGetTime() / 2 + 1.5) + 1) / 2, (sin(glfwGetTime() / 2 + 1.0) + 1) / 2);
+				//glVertex3f(-0.6f, -0.4f, 0.f);
+				///*glColor3f(0.f, sin(static_cast<float>(glfwGetTime()) * 5), 0.f);*/
+				//glColor3f((sin(glfwGetTime() / 2) + 1) / 2, (sin(glfwGetTime() / 2 + 1.5) + 1) / 2, (sin(glfwGetTime() / 2 + 1.0) + 1) / 2);
+				//glVertex3f(0.6f, -0.4f, 0.f);
+				///*glColor3f(0.f, 0.f, sin(static_cast<float>(glfwGetTime()) * 5));*/
+				//glColor3f((sin(glfwGetTime() / 2) + 1) / 2, (sin(glfwGetTime() / 2 + 1.5) + 1) / 2, (sin(glfwGetTime() / 2 + 1.0) + 1) / 2);
+				//glVertex3f(0.f, 0.6f, 0.f);
+				glColor3f((sin(glfwGetTime() / 2) + 1) / 2, (sin(glfwGetTime() / 2 + 1.5) + 1) / 2,
+				          (sin(glfwGetTime() / 2 + 1.0) + 1) / 2);
 				glVertex3f(-0.6f, -0.4f, 0.f);
-				glColor3f(0.f, 1.f, 0.f);
+				glColor3f((sin(glfwGetTime() / 2 + 1.5) + 1) / 2, (sin(glfwGetTime() / 2 + 1.0) + 1) / 2,
+				          (sin(glfwGetTime() / 2) + 1) / 2);
 				glVertex3f(0.6f, -0.4f, 0.f);
-				glColor3f(0.f, 0.f, 1.f);
+				glColor3f((sin(glfwGetTime() / 2 + 1.0) + 1) / 2, (sin(glfwGetTime() / 2) + 1) / 2,
+				          (sin(glfwGetTime() / 2 + 1.5) + 1) / 2);
 				glVertex3f(0.f, 0.6f, 0.f);
 				glEnd();
 			}

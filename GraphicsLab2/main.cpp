@@ -38,10 +38,13 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	rory::graph_core::GLRenderSystem* renderer = new rory::graph_core::GLRendererOld2_1();
+	renderer->init();
+
+	auto win1 = new rory::GLWindow("Lesson 1", 640, 420);
+	auto win2 = new rory::GLWindow("Lesson 2", 640, 420);
+
+
 	auto window = glfwCreateWindow(640, 480, "Lesson 01 - RAINBOW - Рябов Андрей ПА-18-2", nullptr, nullptr);
 
 	if (!window) {
@@ -61,13 +64,19 @@ int main(int argc, char** argv) {
 
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 	float color_rgb = 0.0;
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS and glfwWindowShouldClose(window) == 0) {
-		glClearColor(sin(color_rgb * numbers::pi / 180), abs(cos(color_rgb * numbers::pi / 180)),
-		             abs(sin(color_rgb * numbers::pi / 180) + cos(color_rgb * numbers::pi / 180)), 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+
+	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0) {
+		glfwMakeContextCurrent(win1->get_glfw_handle());
+		renderer->render(win1->get_glfw_handle());
+		glfwSwapBuffers(win1->get_glfw_handle());
+		glfwMakeContextCurrent(win2->get_glfw_handle());
+		renderer->render(win2->get_glfw_handle());
+		glfwSwapBuffers(win2->get_glfw_handle());
+		glfwPollEvents();
+		glfwMakeContextCurrent(window);
+		renderer->render(window);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
-		color_rgb <= 180 ? color_rgb += 0.1 : color_rgb = 0;
 	}
 
 	glfwTerminate();
