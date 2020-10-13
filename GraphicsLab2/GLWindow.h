@@ -13,7 +13,7 @@ namespace rory {
 			this->window_ = glfwCreateWindow(width, height, title.c_str(), nullptr, share);
 		}
 		~GLWindow() {
-			glfwDestroyWindow(window_);
+			glfwSetWindowShouldClose(this->window_, 1);
 		};
 		[[nodiscard]] uint32_t get_width() const {
 			int* width = nullptr;
