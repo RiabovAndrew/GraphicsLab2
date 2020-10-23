@@ -24,11 +24,31 @@ namespace rory {
 					return;
 				}
 				glfwWindowHint(GLFW_SAMPLES, 4);
-				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-				glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+				/*glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);*/
 			}
-			void render(GLFWwindow* window) override { }
+			void render(GLFWwindow* window) override {
+				float colorRGB = 0.0;
+				glClearColor(sin(colorRGB * std::numbers::pi / 180), abs(cos(colorRGB * std::numbers::pi / 180)), abs(sin(colorRGB * std::numbers::pi / 180) + cos(colorRGB * std::numbers::pi / 180)), 1.0f);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				colorRGB <= 180 ? colorRGB += 0.1 : colorRGB = 0;
+				glEnable(GL_DEPTH_TEST);
+				glMatrixMode(GL_MODELVIEW);
+				glPushMatrix();
+				glRotatef(glfwGetTime() * 50.0f, 1.0, 1.0, 0.0); //apply transformation
+				glGenBuffers(1, &Cube::VBO);
+				glBindBuffer(GL_ARRAY_BUFFER, Cube::VBO);
+				glBufferData(GL_ARRAY_BUFFER, sizeof(Cube::vertices), Cube::vertices, GL_STATIC_DRAW);
+				glVertexPointer(3, GL_FLOAT, 0, nullptr);
+				glBindBuffer(GL_ARRAY_BUFFER, Cube::VBO);
+				glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), static_cast<void*>(nullptr));
+				glEnableVertexAttribArray(0);
+				glEnableClientState(GL_VERTEX_ARRAY);
+				glDrawArrays(GL_TRIANGLES, 0, sizeof(Cube::vertices) / sizeof(Cube::vertices[0] / 5));
+				glPopMatrix();
+				glDisableClientState(GL_VERTEX_ARRAY);
+			}
 			void renderTriangleArray(GLfloat vertices[], GLfloat colors[]) override { }
 		};
 
@@ -89,4 +109,5 @@ namespace rory {
 		};
 	}
 }
+
 #endif
